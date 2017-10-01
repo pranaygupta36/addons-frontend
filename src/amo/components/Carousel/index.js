@@ -1,13 +1,14 @@
 /* @flow */
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
+import Slider from 'react-slick';
 import { compose } from 'redux';
 
-import SearchResult from 'amo/components/SearchResult';
+import Link from 'amo/components/Link';
+import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
-import CardList from 'ui/components/CardList';
+import { visibleAddonType } from 'core/utils';
 
 import './styles.scss';
 
@@ -16,11 +17,36 @@ type PropTypes = {|
 
 |};
 
-export default class CarouselBase extends React.Component {
+export class CarouselBase extends React.Component {
+  props: PropTypes;
 
   render() {
     return (
-      <div className="Carousel" />
+      <div className="Carousel">
+        <Slider
+          dots
+          infinite
+          slidesToScroll={1}
+          slidesToShow={2}
+          speed={500}
+        >
+          <div>
+            <Link to={`/${visibleAddonType(ADDON_TYPE_EXTENSION)}/featured/`}>
+              FEATURED ADDONS
+            </Link>
+          </div>
+          <div>
+            <Link to={`/${visibleAddonType(ADDON_TYPE_EXTENSION)}/`}>
+              JUST ADDONS
+            </Link>
+          </div>
+          <div>
+            <Link to={`/${visibleAddonType(ADDON_TYPE_THEME)}/`}>
+              JUST THEMES
+            </Link>
+          </div>
+        </Slider>
+      </div>
     );
   }
 }

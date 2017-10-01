@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import { setViewContext } from 'amo/actions/viewContext';
+import Carousel from 'amo/components/Carousel';
 import Link from 'amo/components/Link';
 import {
   CLIENT_APP_ANDROID,
@@ -132,6 +133,8 @@ export class HomeBase extends React.Component {
 
     return (
       <div className="Home">
+        <Carousel />
+
         <Card
           className="Home-category-card Home-category-card--extensions"
           footerLink={<Link to="/extensions/">
