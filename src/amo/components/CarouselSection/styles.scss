@@ -1,0 +1,65 @@
+@import "~ui/css/vars";
+
+.CarouselSection {
+  align-content: center;
+  background: url(~amo/components/CarouselSection/icons/default.svg) no-repeat center;
+  background-size: cover;
+  border-radius: $border-radius-header-carousel;
+  // display: block;
+  font-size: $font-size-header-carousel;
+  height: 312px;
+  line-height: 1.2;
+  margin: 0 12px;
+  padding: 48px;
+  position: relative;
+  width: 768px;
+
+  &::before {
+    background: #7950f2;
+    border-radius: $border-radius-header-carousel;
+    content: "";
+    display: block;
+    height: 100%;
+    left: 0;
+    opacity: 0.8;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
+.CarouselSection-link,
+.CarouselSection-link:link, {
+  align-items: center;
+  color: $white;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  position: relative;
+  text-decoration: none;
+  z-index: 10;
+}
+
+.CarouselSection-styleName--featured-extensions {
+  &::before {
+    background: darken(#be4bdb, 35%);
+  }
+}
+
+.CarouselSection-styleName--dynamic-media-downloaders {
+  &::before {
+    background: darken(#fa5252, 35%);
+  }
+}
+
+.CarouselSection-styleName--privacy-matters {
+  &::before {
+    background: darken(#e64980, 35%);
+  }
+}
+
+.CarouselSection-styleName--top-rated-themes {
+  &::before {
+    background: darken(#fab005, 35%);
+  }
+}
